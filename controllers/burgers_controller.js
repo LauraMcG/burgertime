@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 		burger.all(function(result) {
 			res.render('index', {burgers:result});
-			console.log(result);
+			// console.log(result);
 		});
 	});
 
@@ -22,17 +22,11 @@ module.exports = function(app) {
 		});
 	});
 
-		// connection.query("INSERT INTO quotes (author, quote) VALUES (?, ?)", [
-		//     req.body.author, req.body.quote
-		//   ], function(result) {
+	app.put('/:id', function(req, res) {
+		burger.update(req.body.id, function(result) {
 
-		//     }
-
-	// 	burger.insert(req, function() {
-	// 		console.log(res);
-	// 		res.redirect("/");
-	// 	});
-
-	// });
+			res.redirect("/");
+		});
+	});
 }
 
