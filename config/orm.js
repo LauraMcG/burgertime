@@ -9,10 +9,10 @@ var orm = {
 			cb(result);
 		});
 	},
-	insertOne : function(tableInput, newItemValues, cb) {
-		var queryString = 'INSERT INTO ?? SET ?';
+	insertOne : function(table, columns, values, cb) {
+		var queryString = 'INSERT INTO ?? (??) VALUES (?)';
 
-		connection.query(queryString, [tableInput, newItemValues], function(error, result){
+		connection.query(queryString, [table, columns, values], function(error, result){
 			if(error) {throw error}
 
 			cb(result);
@@ -20,7 +20,6 @@ var orm = {
 		//this may have to be structured differently 
 		//once i know how we're getting data
 		//for now, assume it's being sent as an object with key values
-
 	},
 	updateOne : function(tableInput, newValue, whatToSelect, cb) {
 		var queryString ='UPDATE ?? SET ? WHERE ?';

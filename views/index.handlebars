@@ -4,10 +4,12 @@
 
 <ul>
   {{#each burgers}}
-  	<li>
-  	   <p>ID: {{this.id}}</p>
-       <p>Burger: {{this.burger}}</p>
-  	</li>
+  	<ul>
+  	   <p>(ID {{this.id}}) : {{this.burger_name}}</p>
+        <form action="/"{{this.id}}?_method=PUT" method="POST">
+         <button type="submit">Delete Burger</button>
+        </form>
+  	</ul>
   {{/each}}
 </ul>
 
@@ -20,8 +22,5 @@
 </div>
 
 <div>
-  <form action="/"{{this.id}}?_method=DELETE" method="POST">
 
-    <button type="submit">Delete Burger</button>
-  </form>
 </div>

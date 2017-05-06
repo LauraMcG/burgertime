@@ -3,8 +3,10 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
+var path = require('path');
 
-var orm = require("./config/orm.js");
+var orm = require("./config/orm");
+
 
 //setting up express server
 var app = express();
@@ -22,3 +24,9 @@ app.use(methodOverride("_method"));
 //settung up handlebars usage
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+//linking the controller file for routing
+var controller = require('./controllers/burgers_controller')(app);
+
+//setting up the port to listen!
+app.listen(port);
