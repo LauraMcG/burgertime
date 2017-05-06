@@ -7,11 +7,9 @@ var path = require('path');
 module.exports = function(app) {
 
 	app.get('/', function(req, res) {
-		// res.render('index');
 
 		burger.all(function(result) {
 			res.render('index', {burgers:result});
-			// console.log(result);
 		});
 	});
 

@@ -17,9 +17,7 @@ var orm = {
 
 			cb(result);
 		});
-		//this may have to be structured differently 
-		//once i know how we're getting data
-		//for now, assume it's being sent as an object with key values
+
 	},
 	updateOne : function(table, ColToUpdate, valToUpdate, colToSelect, ValToSelect, cb) {
 		var queryString ='UPDATE ?? SET ?? = ? WHERE ?? = ?';

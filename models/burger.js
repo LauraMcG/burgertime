@@ -4,7 +4,6 @@ var connection = require('../config/connection');
 var burger = {
 	all: function(cb) {
 		orm.selectAll(function(result) {
-			// console.log(result);
 			cb(result);
 		});
 	},
@@ -15,8 +14,6 @@ var burger = {
 	},
 
 	update:	function(id, cb) {
-		// var updateValue = 'id = '+ newValue;
-		// console.log('updateValue is ' + updateValue);
 		orm.updateOne('burgers', 'devoured', 1, 'id', id, function(result) {
 			cb(result);
 		});
