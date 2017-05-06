@@ -9,18 +9,17 @@ var burger = {
 		});
 	},
 	insert: function(input, cb) {
-		orm.insertOne('burgers', ['burger_name', 'devoured'], [input , false], function(result) {
+		orm.insertOne('burgers', ['burger_name', 'devoured'], [input, false], function(result) {
 				cb(result);
 		});
 	},
 
-	update: {
-		function(newValue, whatToSelect, cb) {
-			orm.updateOne('burgers', newValue, whatToSelect, function(result) {
-				cb(result);
-			});
-		}
-	}	
+	update:	function(newValue, cb) {
+		var updateValue = 'id = '+ newValue;
+		orm.updateOne('burgers', 'devoured = true', updateValue, function(result) {
+			cb(result);
+		});
+	}
 }
 
 /*

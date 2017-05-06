@@ -21,10 +21,10 @@ var orm = {
 		//once i know how we're getting data
 		//for now, assume it's being sent as an object with key values
 	},
-	updateOne : function(tableInput, newValue, whatToSelect, cb) {
+	updateOne : function(table, whatToUpdate, whatToSelect, cb) {
 		var queryString ='UPDATE ?? SET ? WHERE ?';
 
-		connection.query(queryString, [tableInput, newValue, whatToSelect], function(error, result) {
+		connection.query(queryString, [table, whatToUpdate, whatToSelect], function(error, result) {
 			if(error) {throw error}
 
 			cb(result);

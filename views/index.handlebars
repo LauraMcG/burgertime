@@ -7,7 +7,8 @@
   	<ul>
   	   <p>(ID {{this.id}}) : {{this.burger_name}}</p>
         <form action="/"{{this.id}}?_method=PUT" method="POST">
-         <button type="submit">Delete Burger</button>
+        <input type="hidden" name="id" value="{{this.id}}">
+         <button type="submit">Devour Burger</button>
         </form>
   	</ul>
   {{/each}}
